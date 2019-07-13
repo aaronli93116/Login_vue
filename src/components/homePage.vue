@@ -1,8 +1,16 @@
 <template>
-  <div id="HomePage">
-    <h1>HomePage</h1>
-    <p>Login Success</p>
-    <button type="button" v-on:click="logout()">Logout</button>
+  <div class="grid align__item">
+    <div class="register">
+      <div id="HomePage">
+        <h2>HomePage</h2>
+        <form action method="post" class="form">
+          <p>Login Success</p>
+          <div class="form__field">
+            <input type="button" v-on:click="logout()" value="Login out">
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </template>
 

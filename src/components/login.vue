@@ -1,14 +1,22 @@
 <template>
-  <div id="login">
-    <h1>Login</h1>
-    <input type="text" name="username" v-model="input.username" placeholder="Username">
-    <br>
-    <input type="password" name="password" v-model="input.password" placeholder="Password">
-    <br>
-    <input type="checkbox" id="rememberMe" value="RememberMe" v-on:click="register()">
-    <label for="rememberMe">Remember Me</label>
-    <br>
-    <button type="button" v-on:click="login()">Login</button>
+  <div class="grid align__item">
+    <div class="register">
+      <h2>Login in</h2>
+      <form action method="post" class="form">
+        <div class="form__field">
+          <input type="text" name="username" v-model="input.username" placeholder="Username">
+        </div>
+        <br>
+        <input type="password" name="password" v-model="input.password" placeholder="Password">
+        <br>
+        <input type="checkbox" id="rememberMe" value="RememberMe" v-on:click="register()">
+        <label for="rememberMe">Remember Me</label>
+        <br>
+        <div class="form__field">
+          <input type="button" v-on:click="login()" value="Login in">
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 

@@ -32,19 +32,13 @@ export default {
     };
   },
   created() {
-    console.log(this.$cookie.get("rememberMe"));
+    //console.log(this.$cookie.get("rememberMe"));
     if (this.$cookie.get("rememberMe") === "true") {
       this.$router.replace({ name: "homePage" });
     } else {
       this.$router.replace({ name: "login" });
     }
   },
-  // mounted() {
-  //   console.log(this.$cookie.get("rememberMe"));
-  //   if (this.$cookie.get("rememberMe") === "true") {
-  //     this.$router.replace({ name: "homePage" });
-  //   }
-  // },
   methods: {
     register() {
       if (this.input.username !== "" && this.input.password !== "") {

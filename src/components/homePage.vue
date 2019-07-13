@@ -2,6 +2,7 @@
   <div id="HomePage">
     <h1>HomePage</h1>
     <p>Login Success</p>
+    <button type="button" v-on:click="logout()">Logout</button>
   </div>
 </template>
 
@@ -12,9 +13,18 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    this.$cookie.set("path", "/homePage", { expires: "5m" });
-    console.log(this.$cookie.get("path"));
+  // mounted() {
+  //   this.$cookie.set("path", "/homePage", { expires: "5m" });
+  //   console.log(this.$cookie.get("path"));
+  // }
+  methods: {
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+    logout() {
+      this.$router.replace({ name: "login" });
+      this.$cookie.set("rememberMe", "false");
+    }
   }
 };
 </script>

@@ -20,11 +20,23 @@ export default {
       input: {
         username: "",
         password: ""
-      },
-      remberMe: false
+      }
     };
   },
-  mounted() {},
+  created() {
+    console.log(this.$cookie.get("rememberMe"));
+    if (this.$cookie.get("rememberMe") === "true") {
+      this.$router.replace({ name: "homePage" });
+    } else {
+      this.$router.replace({ name: "login" });
+    }
+  },
+  // mounted() {
+  //   console.log(this.$cookie.get("rememberMe"));
+  //   if (this.$cookie.get("rememberMe") === "true") {
+  //     this.$router.replace({ name: "homePage" });
+  //   }
+  // },
   methods: {
     register() {
       if (this.input.username !== "" && this.input.password !== "") {
@@ -34,6 +46,7 @@ export default {
     login() {
       if (this.input.username !== "" && this.input.password !== "") {
         if (localStorage.getItem(this.input.username) === this.input.password) {
+          this.$cookie.set("rememberMe", "true", { expires: "5m" });
           this.$emit("authenticated", true);
           this.$router.replace({ name: "homePage" });
         } else {

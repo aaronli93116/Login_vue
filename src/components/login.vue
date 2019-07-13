@@ -20,9 +20,11 @@ export default {
       input: {
         username: "",
         password: ""
-      }
+      },
+      remberMe: false
     };
   },
+  mounted() {},
   methods: {
     register() {
       if (this.input.username !== "" && this.input.password !== "") {

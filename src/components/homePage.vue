@@ -8,8 +8,13 @@
 <script>
 export default {
   name: "HomePage",
+  isLoging: false,
   data() {
     return {};
+  },
+  mounted() {
+    this.$cookie.set("path", "/homePage", { expires: "5m" });
+    console.log(this.$cookie.get("path"));
   }
 };
 </script>
